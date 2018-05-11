@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
+
 
 public class VIPTracker : MonoBehaviour {
 
@@ -20,7 +22,11 @@ public class VIPTracker : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        this.transform.rotation = Quaternion.Euler(tiltController.gameObject.transform.rotation.x, vip.transform.rotation.y, transform.rotation.z);
+        //this.transform.rotation = Quaternion.Euler(tiltController.gameObject.transform.rotation.x, vip.transform.rotation.y, transform.rotation.z);
         this.transform.position = vip.transform.position;
-	}
+
+        gameObject.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(CrossPlatformInputManager.GetAxis("Vertical") * tiltController.amount, 0, 0), tiltController.sensitivity);
+
+        gameObject.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, -CrossPlatformInputManager.GetAxis("Horizontal") * tiltController.amount), tiltController.sensitivity);
+    }
 }
