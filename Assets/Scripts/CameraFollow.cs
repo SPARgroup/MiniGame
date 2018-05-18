@@ -29,8 +29,11 @@ public class CameraFollow : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        Vector3 targetTransform = new Vector3(vip_follower.transform.position.x, vip_follower.transform.position.y + height, vip_follower.transform.position.z + unChapeDist);
-
-        transform.position = Vector3.Lerp(transform.position, targetTransform, Time.deltaTime * smoothness);
+        if(vip_follower != null)
+        {
+            Vector3 targetTransform = new Vector3(vip_follower.transform.position.x, vip_follower.transform.position.y + height, vip_follower.transform.position.z + unChapeDist);
+            transform.position = Vector3.Lerp(transform.position, targetTransform, Time.deltaTime * smoothness);
+        }
+       
     }
 }

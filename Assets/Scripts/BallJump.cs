@@ -5,25 +5,25 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class BallJump : MonoBehaviour {
 
+    //Variables
+    #region
     public float jumpForce = 60f;
-
     //Force applied in the direction of the tilt of the floor to make the ball more controllable
     public float additionalForceAmount = 40f;
 
-   // public GameObject vip;
-
     public Rigidbody rb;
     public Collider coll;
-    //public Transform vip_Parent;
 
     public bool isGrounded = false;
     public string vip_tracker_tag = "VIPTracker";
 
     public TiltController player;
     public VIPTracker vip_Tracker;
+    public Stomper stomper;
+    #endregion
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         //vip = GameObject.FindGameObjectWithTag("VIP");
         rb = this.GetComponent<Rigidbody>();
         coll = this.GetComponent<Collider>();
@@ -31,6 +31,7 @@ public class BallJump : MonoBehaviour {
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<TiltController>();
         vip_Tracker = GameObject.FindGameObjectWithTag(vip_tracker_tag).GetComponent<VIPTracker>();
+        stomper = GameObject.FindGameObjectWithTag("Stomper_Parent").GetComponent<Stomper>();
         
 	}
 	
@@ -47,10 +48,12 @@ public class BallJump : MonoBehaviour {
         if(collision.gameObject.tag == "Player")
         {
             isGrounded = true;
+            rb.useGravity = false;
         }
-
-        rb.useGravity = false;
-            
+        if(collision.gameObject.tag == "Stomper")
+        {
+            stomper.isBallUnderMe = true;
+        }                
     }
 
     private void OnCollisionExit(Collision collision)
@@ -58,9 +61,13 @@ public class BallJump : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             isGrounded = false;
+            rb.useGravity = true;
+        }
+        if (collision.gameObject.tag == "Stomper")
+        {
+            stomper.isBallUnderMe = false;
         }
 
-        rb.useGravity = true;
     }
 
     public void Jump()
