@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-    public GameObject vip;
+    public GameObject vip_follower;
 
     public float height;
     public float unChapeDist;
@@ -12,20 +12,25 @@ public class CameraFollow : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        vip = GameObject.FindGameObjectWithTag("VIP");
+        vip_follower = GameObject.FindGameObjectWithTag("VIP_Follower");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        
+    }
 
     private void LateUpdate()
     {
 
-        Vector3 targetTransform = new Vector3(vip.transform.position.x, vip.transform.position.y + height, vip.transform.position.z + unChapeDist);
+        
 
-        transform.position = Vector3.Lerp(transform.position, targetTransform,smoothness);
-    
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 targetTransform = new Vector3(vip_follower.transform.position.x, vip_follower.transform.position.y + height, vip_follower.transform.position.z + unChapeDist);
+
+        transform.position = Vector3.Lerp(transform.position, targetTransform, Time.deltaTime * smoothness);
     }
 }

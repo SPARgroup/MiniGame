@@ -8,6 +8,7 @@ TagManager:
   - VIP
   - VIP Parent
   - VIPTracker
+  - VIP_Follower
   layers:
   - Default
   - TransparentFX

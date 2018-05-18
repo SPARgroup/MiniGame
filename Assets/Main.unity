@@ -110,64 +110,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &210888778
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 210888780}
-  m_Layer: 0
-  m_Name: VIP
-  m_TagString: VIP Parent
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &210888780
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 210888778}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.53, y: 8.49, z: -36.699398}
-  m_LocalScale: {x: 4.138424, y: 4.138424, z: 4.138424}
-  m_Children:
-  - {fileID: 422925583}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &422925582
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 422925583}
-  m_Layer: 0
-  m_Name: Graphics
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &422925583
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 422925582}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1430656178}
-  m_Father: {fileID: 210888780}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &485935318
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,10 +211,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9122674e0d291284a9380c0862b1bbd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vip: {fileID: 210888778}
+  vip_follower: {fileID: 0}
   height: 20
   unChapeDist: -40
-  smoothness: 0.1
+  smoothness: 6
+--- !u!1 &806169748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 806169749}
+  m_Layer: 0
+  m_Name: VIP_Follower
+  m_TagString: VIP_Follower
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &806169749
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 806169748}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.24163786, y: 0.24163786, z: 0.24163786}
+  m_Children: []
+  m_Father: {fileID: 1430656178}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1001309731 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 3681543e5b0f59742b73073cb379cdc6, type: 2}
@@ -403,7 +373,7 @@ GameObject:
   - component: {fileID: 1430656182}
   - component: {fileID: 1430656183}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: VIP
   m_TagString: VIP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -415,12 +385,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1430656177}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 422925583}
-  m_RootOrder: 0
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.53, y: 8.49, z: -36.699398}
+  m_LocalScale: {x: 4.138424, y: 4.138424, z: 4.138424}
+  m_Children:
+  - {fileID: 806169749}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1430656179
 MeshRenderer:
@@ -499,11 +470,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db6f942ff827944785c1df0cac07c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 30
+  jumpForce: 100
   additionalForceAmount: 120
   rb: {fileID: 0}
   coll: {fileID: 0}
-  vip_Parent: {fileID: 0}
   isGrounded: 0
   vip_tracker_tag: VIPTracker
   player: {fileID: 0}
@@ -548,7 +518,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1747235979
 Prefab:

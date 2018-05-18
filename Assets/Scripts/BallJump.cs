@@ -14,7 +14,7 @@ public class BallJump : MonoBehaviour {
 
     public Rigidbody rb;
     public Collider coll;
-    public Transform vip_Parent;
+    //public Transform vip_Parent;
 
     public bool isGrounded = false;
     public string vip_tracker_tag = "VIPTracker";
@@ -27,7 +27,7 @@ public class BallJump : MonoBehaviour {
         //vip = GameObject.FindGameObjectWithTag("VIP");
         rb = this.GetComponent<Rigidbody>();
         coll = this.GetComponent<Collider>();
-        vip_Parent = GameObject.FindGameObjectWithTag("VIP Parent").transform;
+        //vip_Parent = GameObject.FindGameObjectWithTag("VIP Parent").transform;
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<TiltController>();
         vip_Tracker = GameObject.FindGameObjectWithTag(vip_tracker_tag).GetComponent<VIPTracker>();
@@ -48,6 +48,8 @@ public class BallJump : MonoBehaviour {
         {
             isGrounded = true;
         }
+
+        rb.useGravity = false;
             
     }
 
@@ -57,7 +59,8 @@ public class BallJump : MonoBehaviour {
         {
             isGrounded = false;
         }
-            
+
+        rb.useGravity = true;
     }
 
     public void Jump()
