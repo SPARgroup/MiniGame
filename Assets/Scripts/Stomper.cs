@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class Stomper : MonoBehaviour
 {
     #region //variables
     public float fallDistance = 10f;
-
     public bool isBallUnderMe = false;
 
-    GameObject vip;
+    public GameObject vip;
+    public GameObject cam;
 
     public Coroutine coroutine;
     #endregion 
@@ -18,6 +19,7 @@ public class Stomper : MonoBehaviour
     void Start()
     {
         vip = GameObject.FindGameObjectWithTag("VIP");
+        cam = GameObject.FindGameObjectWithTag("Camera");
     }
 
     private void OnEnable()
@@ -35,9 +37,12 @@ public class Stomper : MonoBehaviour
     {
         if (isBallUnderMe)
         {
+            CameraShaker.Instance.ShakeOnce(4f, 3.5f, 0.1f, 1.3f);
             Destroy(vip);
             Debug.Log("Pata tha phatega xD");
         }
+
+        
         
     }
 

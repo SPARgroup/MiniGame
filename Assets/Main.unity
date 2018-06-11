@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 485935321}
   - component: {fileID: 485935320}
   - component: {fileID: 485935319}
-  - component: {fileID: 485935324}
+  - component: {fileID: 485935325}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Camera
@@ -215,13 +215,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 485935318}
   m_LocalRotation: {x: 0.0915078, y: -0, z: -0, w: 0.99580437}
-  m_LocalPosition: {x: 0, y: 14.4, z: -50.9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1872528869}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 10.501, y: 0, z: 0}
---- !u!114 &485935324
+--- !u!114 &485935325
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -229,13 +229,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 485935318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9122674e0d291284a9380c0862b1bbd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vip_follower: {fileID: 0}
-  height: 20
-  unChapeDist: -40
-  smoothness: 6
+  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
+  DefaultRotInfluence: {x: 1, y: 1, z: 1}
 --- !u!1 &599282279
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +839,51 @@ Transform:
   m_Father: {fileID: 599282280}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 32.106003, y: 2523.164, z: 25.330002}
+--- !u!1 &1872528867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1872528869}
+  - component: {fileID: 1872528868}
+  m_Layer: 0
+  m_Name: CameraParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1872528868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1872528867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9122674e0d291284a9380c0862b1bbd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vip_follower: {fileID: 806169748}
+  height: 15.8
+  unChapeDist: -45.1
+  smoothness: 6
+--- !u!4 &1872528869
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1872528867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5580854, y: 11.786432, z: -30.376411}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 485935323}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2032642138
 Prefab:
   m_ObjectHideFlags: 0
@@ -1016,7 +1059,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400004, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 55.5
+      value: 94
       objectReference: {fileID: 0}
     - target: {fileID: 22400004, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1042,6 +1085,22 @@ Prefab:
     - target: {fileID: 22400004, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
       propertyPath: m_SizeDelta.y
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400002, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.5339087
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400002, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.5339086
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400002, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.5339086
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400002, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 2}
