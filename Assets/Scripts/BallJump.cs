@@ -41,6 +41,13 @@ public class BallJump : MonoBehaviour {
         rb.AddForce(vip_Tracker.transform.right * CrossPlatformInputManager.GetAxis("Horizontal") * additionalForceAmount 
                     + vip_Tracker.transform.forward * CrossPlatformInputManager.GetAxis("Vertical") * additionalForceAmount, ForceMode.Acceleration);
 
+        //PC Input
+        if (player.pcInput)
+        {
+            rb.AddForce(vip_Tracker.transform.right * Input.GetAxis("Horizontal") * additionalForceAmount
+                                + vip_Tracker.transform.forward * Input.GetAxis("Vertical") * additionalForceAmount, ForceMode.Acceleration);
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)

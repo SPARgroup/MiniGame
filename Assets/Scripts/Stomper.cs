@@ -37,7 +37,7 @@ public class Stomper : MonoBehaviour
     {
         if (isBallUnderMe)
         {
-            CameraShaker.Instance.ShakeOnce(4f, 3.5f, 0.1f, 1.3f);
+            CameraShaker.Instance.ShakeOnce(3.5f, 3f, 0.1f, 1.5f);
             Destroy(vip);
             Debug.Log("Pata tha phatega xD");
         }
