@@ -20,6 +20,8 @@ public class BallJump : MonoBehaviour {
     public TiltController player;
     public VIPTracker vip_Tracker;
     public Stomper stomper;
+
+    public GameObject ExplosionEffect; 
     #endregion
 
     // Use this for initialization
@@ -85,5 +87,10 @@ public class BallJump : MonoBehaviour {
             rb.AddForce(forceVector, ForceMode.Impulse);
             
         }     
+    }
+
+    public void OnDestroy()
+    {
+        Instantiate(ExplosionEffect, gameObject.transform);
     }
 }

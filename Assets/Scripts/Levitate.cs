@@ -14,7 +14,7 @@ public class Levitate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = new Vector3(transformCurrent.x,
+        transform.position = new Vector3(transformCurrent.x ,
             transformCurrent.y + Mathf.Sin(Time.time * speed)*strength,
             transformCurrent.z);  
 	}
