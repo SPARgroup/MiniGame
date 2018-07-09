@@ -299,7 +299,7 @@ public static class SgtObjectPool<T>
 			{
 				root.hideFlags = HideFlags.DontSave;
 
-				Object.DontDestroyOnLoad(root);
+				//Object.DontDestroyOnLoad(root);
 
 				component = root.GetComponent<SgtObjectPool>();
 

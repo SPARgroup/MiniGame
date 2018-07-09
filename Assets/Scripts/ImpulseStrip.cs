@@ -32,7 +32,7 @@ public class ImpulseStrip : MonoBehaviour {
     public void Impulse(float ForceX, float ForceY, float ForceZ, GameObject vip)
     {
         Rigidbody rb = vip.GetComponent<Rigidbody>();
-        Vector3 force = new Vector3(ForceX, ForceY, ForceZ);
+        Vector3 force = new Vector3(ForceX, ForceY, 0);
 
         if(rb != null)
         {
