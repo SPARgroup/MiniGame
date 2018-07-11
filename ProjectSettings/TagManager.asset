@@ -11,6 +11,7 @@ TagManager:
   - VIP_Follower
   - Stomper
   - Stomper_Parent
+  - 90DegreeTurn
   layers:
   - Default
   - TransparentFX
