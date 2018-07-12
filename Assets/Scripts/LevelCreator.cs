@@ -50,7 +50,7 @@ public class LevelCreator : MonoBehaviour {
         Vector3 displaceVector = endPt.position - startPt.position; //subtract to find the net difference
 
         spawnedPlatform.transform.position = spawnedPlatform.transform.position + displaceVector; //move by that difference
-        spawnedPlatform.transform.rotation = spawnRotation;
+        //spawnedPlatform.transform.rotation = spawnRotation;
         previousPlatform = spawnedPlatform; //set previous platform as the spawned platform
     }
 }
